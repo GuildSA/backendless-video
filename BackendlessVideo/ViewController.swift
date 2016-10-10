@@ -66,6 +66,9 @@ class ViewController: UIViewController, UITextFieldDelegate, IMediaStreamerDeleg
         stopMediaBtn.isEnabled = false
         
         resolutionSegment.selectedSegmentIndex = Int(resolution.rawValue)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         checkForBackendlessSetup()
     }
@@ -80,7 +83,7 @@ class ViewController: UIViewController, UITextFieldDelegate, IMediaStreamerDeleg
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         if appDelegate.APP_ID == "<replace-with-your-app-id>" || appDelegate.SECRET_KEY == "<replace-with-your-secret-key>" {
-            
+        
             let alertController = UIAlertController(title: "Backendless Error",
                                                     message: "To use this sample you must register with Backendless, create an app, and replace the APP_ID and SECRET_KEY in the AppDelegate with the values from your app's settings.",
                                                     preferredStyle: .alert)
